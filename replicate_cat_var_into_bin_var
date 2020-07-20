@@ -1,4 +1,5 @@
 # функция для репликации из одной качественной переменной нескольких бинарных
+# function for replication from one categorial variable of several binary ones
 
 my_repl_func <- function(x){
   # x - это порядковый номер колонки, содержащей преобразуемый качественный показатель в датафрейме
@@ -18,6 +19,8 @@ my_repl_func <- function(x){
     # не забываем о пропущенных значениях!
     new_var <- ifelse(is.na(curr_column), NA, new_var)
     
+    # ОБРАЩЕНИЕ К ГЛОБАЛЬНОЙ ПЕРЕМЕННОЙ!!! GLOBAL VAR OPERATION!
+    # kachestv_1 - work dataframe! kachestv_1 - рабочий датасэт!
     # добавляем к существующему датафрэйму
     kachestv_1 <<- cbind(kachestv_1, new_var)
     
